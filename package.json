@@ -34,7 +34,9 @@
     "eslint-plugin-react": "^7.5.1",
     "gui": "0.4.3",
     "jest": "^22.0.3",
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "react-devtools-core": "^3.2.3",
+    "ws": "^5.2.0"
   },
   "license": "MIT",
   "babel": {

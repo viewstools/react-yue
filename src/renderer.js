@@ -166,6 +166,13 @@ function render(element, guiContainer, callback) {
     root = guiContainer._reactRootContainer = newRoot
   }
 
+  YueRenderer.injectIntoDevTools({
+    bundleType: 1, // 0 for PROD, 1 for DEV
+    version: require('../package.json').version, // version for your renderer
+    rendererPackageName: 'react-yue', // package name
+    findHostInstanceByFiber: YueRenderer.findHostInstance, // host instance (root)
+  })
+
   return YueRenderer.updateContainer(element, root, null, callback)
 }
 
