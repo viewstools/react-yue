@@ -9,13 +9,16 @@ This is a lib to help you render the [View](http://libyue.com/docs/latest/js/api
 
 Moreover, it's possible to utilize react-yue to a hot reload developing experience.
 
-You may want to check [do-space-client](https://github.com/oyyd/do-space-client) as an example of using this lib.
+You may want to check [do-space-client](https://github.com/oyyd/do-space-client) and
+[react-yue-app](https://github.com/viewstools/react-yue-app) as examples of using this lib.
 
 |mac|
 |---|
 |<img src="https://raw.githubusercontent.com/oyyd/do-space-client/static/site/screenshot.png" width="400px"/>|
 
 ## Get Started
+
+**Use node v8 or v9 as they are supported by the builds of gui.**
 
 ```
 npm i react-yue react gui
@@ -107,7 +110,16 @@ if (!process.versions.yode) {
 
 ## Style / Layout
 
-Yue use [yoga layout](https://libyue.com/docs/latest/js/guides/layout_system.html) and you can use these properties in the `style` property:
+Yue use [yoga layout](https://libyue.com/docs/latest/js/guides/layout_system.html) and you can use these properties in the `style` property. It's also possible to provide other styles via the `style` prop.
+
+ - `color`: hex|rgb|rgba|hsl|hsla|name of a color
+ - `backgroundColor`: hex|rgb|rgba|hsl|hsla| name of a color
+ - `fontSize`: number representing a pixel value
+ - `fontWeight`: supports 100-900 and all values in https://libyue.com/docs/latest/js/api/font_weight.html
+ - `fontFamily`: name of a font to use
+ - `fontStyle`: normal|italic
+ - `textAlign`: left|center|right
+ - `verticalAlign`: top|middle|bottom
 
 ```js
 import React from 'react'
@@ -118,6 +130,7 @@ export default function MyComp() {
       style={{
         flex: 1,
         flexDirection: 'row',
+        backgroundColor: 'black'
       }}
     >
       <container
@@ -125,7 +138,13 @@ export default function MyComp() {
           justifyContent: 'center',
         }}
       >
-        <label text="hello" />
+        <label
+          text="hello"
+          style={{
+            color: 'white',
+            fontSize: 14
+          }}
+        />
       </container>
     </container>
   )
@@ -145,9 +164,6 @@ _props:_
 - `Boolean` enabled
 - `Boolean` focusable
 - `Boolean` mouseDownCanMoveWindow
-- `Font` font
-- `Color` color
-- `Color` backgroundColor
 
 _events:_
 
